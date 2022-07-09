@@ -6,7 +6,8 @@ export const CAMERA = {
     weight: 1,
     price: 10,
     expectedVolume: 0.003,
-    expectedDensity: 333
+    expectedDensity: 333,
+    expectedShipmentFee: 10
 };
 
 export const GUITAR = {
@@ -17,7 +18,8 @@ export const GUITAR = {
     weight: 3,
     price: 10,
     expectedVolume: 0.03,
-    expectedDensity: 100
+    expectedDensity: 100,
+    expectedShipmentFee: 30
 };
 
 export const FRIDGE = {
@@ -28,5 +30,6 @@ export const FRIDGE = {
     weight: 40,
     price: 10,
     expectedVolume: 1,
-    expectedDensity: 40
+    expectedDensity: 40,
+    expectedShipmentFee: 400
 };

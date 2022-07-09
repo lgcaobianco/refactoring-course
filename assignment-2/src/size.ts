@@ -12,4 +12,7 @@ export class Size {
     }
 
 
+    getVolume(): number {
+        return (this.dimension.height * this.dimension.length * this.dimension.width) * (10 ** -6);
+    }
 }

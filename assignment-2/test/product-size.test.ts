@@ -20,5 +20,17 @@ describe('test products sizes', () => {
         };
         const product = new Product(10, dimensions);
         expect(product).toBeInstanceOf(Product);
+    });
+
+    it('should obtain right value for volume in cubic meters', () => {
+        const expectedVolume = 1;
+        const dimensions = {
+            width: 100,
+            height: 200,
+            length: 50
+        }
+        const product = new Product(10, dimensions);
+        expect(product.getVolumeInCubicMeter()).toEqual(expectedVolume);
     })
+
 });

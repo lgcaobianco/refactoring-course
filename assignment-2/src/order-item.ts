@@ -22,11 +22,4 @@ export class OrderItem {
         const shippingCalculator = new StandardShippingCalculator(distance, this.product);
         return shippingCalculator.getShippingFee();
     }
-
-
-    public get getProduct(): Product {
-        return this.product;
-    }
-
-
 }

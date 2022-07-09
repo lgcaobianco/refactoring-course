@@ -18,9 +18,15 @@ export class OrderItem {
     }
 
 
-    public getShippingFee(distance: number): number {
+    public getShippingFee(distance = 1000): number {
         const shippingCalculator = new StandardShippingCalculator(distance, this.product);
         return shippingCalculator.getShippingFee();
     }
+
+
+    public get getProduct(): Product {
+        return this.product;
+    }
+
 
 }

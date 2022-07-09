@@ -21,13 +21,12 @@ export class Product {
         this.weight = weight;
         this.price = price;
     }
-
-    getVolume(): number {
+    public get volume(): number {
         return (this.height * this.length * this.width) * (10 ** -6);
     }
 
-    getDensity(): number {
-        return this.weight / this.getVolume();
+    public get density(): number {
+        return this.weight / this.volume;
     }
 
     public get getPrice(): number {

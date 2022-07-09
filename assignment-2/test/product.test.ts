@@ -23,12 +23,12 @@ describe('test product', () => {
 
         it(`product ${testProduct.name} should have correct volume`, () => {
             const product = new Product({ ...testProduct });
-            expect(product.getVolume()).toEqual(testProduct.expectedVolume);
+            expect(product.volume).toEqual(testProduct.expectedVolume);
         });
 
         it(`product ${testProduct.name} should have correct density`, () => {
             const product = new Product({ ...testProduct });
-            expect(product.getDensity()).toEqual(testProduct.weight / testProduct.expectedVolume);
+            expect(product.density).toEqual(testProduct.weight / testProduct.expectedVolume);
         });
 
     });

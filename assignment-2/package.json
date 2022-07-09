@@ -1,0 +1,23 @@
+{
+  "name": "assignment-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^28.1.4",
+    "jest": "^28.1.2",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "prettier": "^2.7.1"
+  }
+}

@@ -1,10 +1,9 @@
-import { Dimension } from "./dimension";
-import { ProductInformation } from "./product-information";
-
 export class Product {
+    private height: number;
+    private width: number;
+    private length: number;
+    private weight: number;
     private price: number;
-    private productInformation: ProductInformation;
-
 
     /**
      * 
@@ -12,15 +11,22 @@ export class Product {
      * @param dimension dimensions in CM
      * @param weight KG 
      */
-    constructor(dimension: Dimension, { price = 0, weight = 0 }) {
-        if (price <= 0) {
-            throw new Error("price cannot be invalid");
+    constructor({ height = 0, width = 0, length = 0, weight = 0, price = 0 }) {
+        if (height <= 0 || width <= 0 || length <= 0 || weight <= 0 || price <= 0) {
+            throw new Error("Invalid dimensions")
         }
+        this.height = height;
+        this.width = width;
+        this.length = length;
+        this.weight = weight;
         this.price = price;
-        this.productInformation = new ProductInformation({ ...dimension, weight: weight });
     }
 
-    getProductInformation(): ProductInformation {
-        return this.productInformation;
+    getVolume(): number {
+        return (this.height * this.length * this.width) * (10 ** -6);
+    }
+
+    getDensity(): number {
+        return this.weight / this.getVolume();
     }
 }

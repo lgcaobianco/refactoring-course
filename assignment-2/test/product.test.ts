@@ -12,7 +12,7 @@ describe('test product', () => {
             price: 10,
             weight: 10
         };
-        expect(() => new Product(dimensions)).toThrowError("Invalid dimensions")
+        expect(() => new Product(dimensions)).toThrowError("Invalid dimensions");
     });
 
     testProducts.forEach(testProduct => {
@@ -26,11 +26,10 @@ describe('test product', () => {
             expect(product.getVolume()).toEqual(testProduct.expectedVolume);
         });
 
-
         it(`product ${testProduct.name} should have correct density`, () => {
             const product = new Product({ ...testProduct });
             expect(product.getDensity()).toEqual(testProduct.weight / testProduct.expectedVolume);
         });
 
-    })
+    });
 });

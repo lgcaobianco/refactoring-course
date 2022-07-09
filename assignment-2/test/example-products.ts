@@ -18,7 +18,7 @@ export const GUITAR = {
     price: 10,
     expectedVolume: 0.03,
     expectedDensity: 100
-}
+};
 
 export const FRIDGE = {
     name: 'fridge',
@@ -29,4 +29,4 @@ export const FRIDGE = {
     price: 10,
     expectedVolume: 1,
     expectedDensity: 40
-}
+};

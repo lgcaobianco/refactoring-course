@@ -13,7 +13,7 @@ export class Product {
      */
     constructor({ height = 0, width = 0, length = 0, weight = 0, price = 0 }) {
         if (height <= 0 || width <= 0 || length <= 0 || weight <= 0 || price <= 0) {
-            throw new Error("Invalid dimensions")
+            throw new Error("Invalid dimensions");
         }
         this.height = height;
         this.width = width;
@@ -29,4 +29,9 @@ export class Product {
     getDensity(): number {
         return this.weight / this.getVolume();
     }
+
+    public get getPrice(): number {
+        return this.price;
+    }
+
 }

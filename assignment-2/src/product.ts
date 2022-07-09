@@ -1,23 +1,26 @@
 import { Dimension } from "./dimension";
-import { Size } from "./size";
+import { ProductInformation } from "./product-information";
 
 export class Product {
     private price: number;
-    private size: Size;
+    private productInformation: ProductInformation;
 
 
     /**
      * 
      * @param price price of product
      * @param dimension dimensions in CM
+     * @param weight KG 
      */
-    constructor(price: number, dimension: Dimension) {
+    constructor(dimension: Dimension, { price = 0, weight = 0 }) {
+        if (price <= 0) {
+            throw new Error("price cannot be invalid");
+        }
         this.price = price;
-        this.size = new Size({ ...dimension });
+        this.productInformation = new ProductInformation({ ...dimension, weight: weight });
     }
 
-
-    getVolumeInCubicMeter() {
-        return this.size.getVolume();
+    getProductInformation(): ProductInformation {
+        return this.productInformation;
     }
 }

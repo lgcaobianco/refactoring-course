@@ -1,6 +1,5 @@
 import { Dimension } from "../src/dimension";
 import { Product } from "../src/product";
-import { Size } from "../src/size";
 
 describe('test products sizes', () => {
     it('should throw error when lenght is negative', () => {
@@ -9,7 +8,10 @@ describe('test products sizes', () => {
             height: -5,
             length: 10
         } as Dimension;
-        expect(() => new Product(25.59, dimensions)).toThrowError("Invalid dimensions")
+        expect(() => new Product(dimensions, {
+            price: 10,
+            weight: 10
+        })).toThrowError("Invalid dimensions")
     });
 
     it('should create a new product if dimension is valid', () => {
@@ -18,19 +20,40 @@ describe('test products sizes', () => {
             height: 10,
             length: 10
         };
-        const product = new Product(10, dimensions);
+        const product = new Product(dimensions, {
+            price: 10,
+            weight: 10
+        });
         expect(product).toBeInstanceOf(Product);
     });
 
-    it('should obtain right value for volume in cubic meters', () => {
+    it('should obtain correct value for volume in cubic meters', () => {
         const expectedVolume = 1;
         const dimensions = {
             width: 100,
             height: 200,
             length: 50
         }
-        const product = new Product(10, dimensions);
-        expect(product.getVolumeInCubicMeter()).toEqual(expectedVolume);
-    })
+        const product = new Product(dimensions, {
+            price: 10,
+            weight: 10
+        });
+        expect(product.getProductInformation().getVolume()).toEqual(expectedVolume);
+    });
+
+    it('should obtain correct value for density', () => {
+        const dimensions = {
+            width: 100,
+            height: 200,
+            length: 100
+        }
+        const volume = 2;
+        const weight = 30
+        const product = new Product(dimensions, {
+            price: 10,
+            weight
+        });
+        expect(product.getProductInformation().getDensity()).toEqual(weight / volume);
+    });
 
 });
